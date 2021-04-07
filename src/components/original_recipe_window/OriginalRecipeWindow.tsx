@@ -12,10 +12,10 @@ type OGRecipeWindowProps =
 
 const OriginalRecipeWindow: React.FC<OGRecipeWindowProps> = ({originalRecipe, setOriginalRecipe}) =>
 {
-    function editIngredient(id: number, replacementIngredient: Ingredient)
+    function editIngredient(replacementIngredient: Ingredient):void
     {
         const newRecipe: Ingredient[] = Ingredient.deepCloneIngredientArray(originalRecipe);
-        const index: number = newRecipe.findIndex(x => x.id === id);
+        const index: number = newRecipe.findIndex(x => x.id === replacementIngredient.id);
         newRecipe[index] = replacementIngredient;
         setOriginalRecipe(newRecipe);
     }

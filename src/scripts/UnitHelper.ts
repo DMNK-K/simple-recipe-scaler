@@ -24,7 +24,7 @@ class UnitHelper
         Gallons: 3785.412
     };
 
-    static UnitsAreSameCategory(unitA: Unit, unitB: Unit): boolean
+    static unitsAreSameCategory(unitA: Unit, unitB: Unit): boolean
     {
         if (unitA === unitB){return true;}
         if (this.weightUnits.includes(unitA) && this.weightUnits.includes(unitB)){return true;}
@@ -33,7 +33,7 @@ class UnitHelper
         return false;
     }
 
-    static GetQuantityAfterConversion(currentQuantity: number, currentUnit: Unit, targetUnit: Unit): number
+    static getQuantityAfterConversion(currentQuantity: number, currentUnit: Unit, targetUnit: Unit): number
     {
         if (currentUnit === targetUnit){return currentQuantity;}
         return currentQuantity * this.proportions[currentUnit] / this.proportions[targetUnit];

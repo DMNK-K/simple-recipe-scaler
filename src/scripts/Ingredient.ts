@@ -1,4 +1,5 @@
 import Unit from "./Unit";
+import UnitHelper from "./UnitHelper";
 
 class Ingredient
 {
@@ -15,9 +16,13 @@ class Ingredient
         if (typeof quantity !== "undefined"){this.quantity = quantity;}
     }
 
-    convertUnit(targetUnit: Unit)
+    convertUnit(targetUnit: Unit): void
     {
-
+        if (this.unit !== targetUnit && UnitHelper.unitsAreSameCategory(this.unit, targetUnit))
+        {
+            this.quantity = UnitHelper.getQuantityAfterConversion(this.quantity, this.unit, targetUnit);
+            this.unit = targetUnit;
+        }
     }
 
     clone():Ingredient
