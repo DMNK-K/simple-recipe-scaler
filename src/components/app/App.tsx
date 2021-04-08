@@ -12,13 +12,15 @@ function App() {
     new Ingredient(1, "milk", Unit.Ml, 500),
     new Ingredient(2, "eggs", Unit.Other, 2),
     new Ingredient(3),
-    new Ingredient(4)
+    new Ingredient(4),
+    new Ingredient(5),
+    new Ingredient(6),
   ];
 
   const [onScalingStage, setOnScalingStage] = useState(false);
   const [originalRecipe, setOriginalRecipe] = useState(defaultStartRecipe);
-  const instructionsOriginalRecipe: string = "";
-  const instructionsScaling: string = "";
+  const instructionsOriginalRecipe: string = "Use the fields below to write down the original recipe you want to scale, picking initial quantities and units of measurment. Ingredients with quantity of 0 will be ignored.";
+  const instructionsScaling: string = "Change the quantities of individual ingredients to scale all other ingredients in a proportional manner, or input the scale itself at the bottom. Changing units will automatically convert the quantity for a given ingredient.";
 
   let contentWindow;
   if (onScalingStage)
@@ -33,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <header className="main_header">
-        RecipeScaler
+        Recipe Scaler
       </header>
 
       <main className="content_wrapper">
@@ -47,7 +49,7 @@ function App() {
           {(onScalingStage) ? "Go Back To Original" : "Continue To Scaling"}
         </button>
       </main>
-      <footer>
+      <footer className="main_footer">
 
       </footer>
     </div>

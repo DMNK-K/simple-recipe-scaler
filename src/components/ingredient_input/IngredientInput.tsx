@@ -38,19 +38,19 @@ const IngredientInput: React.FC<IngredientInputProps> = ({ingredient, editIngred
             editIngredient(newIngredient);
         }
     }
-    
+
     const selectUnitOptions: JSX.Element[] = Object.values(Unit).map((unit) =>
         <option key={unit} value={unit}>{unit}</option>
     );
 
     return(
         <div className="ingredient_row">
-            <input type="number" value={ingredient.quantity} onChange={(e) => editQuantity(Number(e.target.value))}></input>
-            <select value={ingredient.unit} onChange={(e) => editUnit(e.target.value)}>
+            <input className="quantity_input" type="number" value={ingredient.quantity} onChange={(e) => editQuantity(Number(e.target.value))}></input>
+            <select className="unit_select" value={ingredient.unit} onChange={(e) => editUnit(e.target.value)}>
                 {selectUnitOptions}
             </select>
-            <input type="text" value={ingredient.name} onChange={(e) => editName(e.target.value)}></input>
-            <button onClick={() => removeIngredient(ingredient.id)}>Remove</button>
+            <input className="name_input" type="text" value={ingredient.name} onChange={(e) => editName(e.target.value)}></input>
+            <button className="remove_ingredient_button" onClick={() => removeIngredient(ingredient.id)}>Remove</button>
         </div>
     );
 }

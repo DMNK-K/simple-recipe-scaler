@@ -46,11 +46,11 @@ const IngredientScaler: React.FC<IngredientScalerProps> = ({ingredient, scale, c
 
     return(
         <div className="ingredient_row">
-            <input type="number" value={scaledQuantity} onChange={(e) => editQuantity(Number(e.target.value))}></input>
-            <select value={desiredUnit} onChange={(e) => editUnit(e.target.value)}>
+            <input className="quantity_input" type="number" value={scaledQuantity} onChange={(e) => editQuantity(Number(e.target.value))}></input>
+            <select className="unit_select" value={desiredUnit} onChange={(e) => editUnit(e.target.value)}>
                 {selectOptions}
             </select>
-            <span>{ingredient.name}</span>
+            <span className="name_span">{ingredient.name}</span>
         </div>
     );
 }

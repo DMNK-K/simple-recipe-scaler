@@ -1,0 +1,13 @@
+.scale_input
+{
+    margin-top:20px;
+    width:20%;
+    height:40px;
+    text-align:center;
+}
+
+.scale_input_label
+{
+    display:inline-block;
+    width:15%;
+}

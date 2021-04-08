@@ -47,14 +47,14 @@ const OriginalRecipeWindow: React.FC<OGRecipeWindowProps> = ({originalRecipe, se
     return(
         <div className="content">
             <div className="content_desc_row">
-                <div>Quantity</div>
-                <div>Unit</div>
-                <div>Name</div>
+                <div className="content_desc_quantity">Quantity</div>
+                <div className="content_desc_unit">Unit</div>
+                <div className="content_desc_name">Name</div>
             </div>
             <div>
                 {ingredientRows}
             </div>
-            <button disabled={originalRecipe.length >= maxIngredients} onClick={addIngredient}>Add Ingredient</button>
+            <button className="add_ingredient_button" disabled={originalRecipe.length >= maxIngredients} onClick={addIngredient}>Add Ingredient</button>
         </div>
     );
 }

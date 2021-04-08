@@ -27,14 +27,15 @@ const ScalingWindow: React.FC<ScalingWindowProps> = ({originalRecipe}) =>
     return(
         <div className="content">
             <div className="content_desc_row">
-                <div>Quantity</div>
-                <div>Unit</div>
-                <div>Name</div>
+                <div className="content_desc_quantity">Quantity</div>
+                <div className="content_desc_unit">Unit</div>
+                <div className="content_desc_name">Name</div>
             </div>
             <div>
                 {ingredientRows}
             </div>
-            <input type="number" value={scale} onChange={(e) => changeScaleDirectly(Number(e.target.value))}></input>
+            <label className="scale_input_label">Scale:</label> 
+            <input className="scale_input" type="number" value={scale} onChange={(e) => changeScaleDirectly(Number(e.target.value))}></input>
         </div>
     );
 }
