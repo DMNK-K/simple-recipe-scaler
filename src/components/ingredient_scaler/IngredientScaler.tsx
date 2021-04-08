@@ -27,11 +27,11 @@ const IngredientScaler: React.FC<IngredientScalerProps> = ({ingredient, scale, c
         }
     }
 
-    function editUnit(unitKey:string)
+    function editUnit(unitVal:string)
     {
-        if (Object.values(Unit).includes(Unit[unitKey as keyof typeof Unit]))
+        if (Object.values(Unit).includes(unitVal as Unit))
         {
-            const unit:Unit = Unit[unitKey as keyof typeof Unit];
+            const unit:Unit = unitVal as Unit;
             if (desiredUnit !== unit && UnitHelper.unitsAreSameCategory(desiredUnit, unit))
             {
                 setDesiredUnit(unit);
@@ -40,12 +40,17 @@ const IngredientScaler: React.FC<IngredientScalerProps> = ({ingredient, scale, c
     }
 
     const scaledQuantity = scale * UnitHelper.getQuantityAfterConversion(ingredient.quantity, ingredient.unit, desiredUnit);
+    const selectOptions = UnitHelper.getMatchingCategoryUnits(ingredient.unit).map((unit) =>
+        <option key={unit} value={unit}>{unit}</option>
+    );
 
     return(
         <div className="ingredient_row">
             <input type="number" value={scaledQuantity} onChange={(e) => editQuantity(Number(e.target.value))}></input>
-            <select></select>
-            <p>{ingredient.name}</p>
+            <select value={desiredUnit} onChange={(e) => editUnit(e.target.value)}>
+                {selectOptions}
+            </select>
+            <span>{ingredient.name}</span>
         </div>
     );
 }

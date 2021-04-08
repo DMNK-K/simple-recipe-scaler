@@ -12,7 +12,7 @@ const ScalingWindow: React.FC<ScalingWindowProps> = ({originalRecipe}) =>
 {
     const [scale, setScale] = useState(1);    
 
-    const ingredientRows: JSX.Element[] = originalRecipe.map((ingredient) =>
+    const ingredientRows: JSX.Element[] = originalRecipe.filter(x => x.quantity > 0).map((ingredient) =>
         <IngredientScaler key={ingredient.id} ingredient={ingredient} scale={scale} changeScale={changeScaleDirectly}/>
     );
 

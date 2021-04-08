@@ -3,7 +3,7 @@ import Unit from './Unit';
 class UnitHelper
 {
     private static weightUnits: Unit[] = [Unit.G, Unit.Kg, Unit.Oz, Unit.Lb];
-    private static volumeUnits: Unit[] = [Unit.Ml, Unit.L, Unit.Teaspoons, Unit.TableSpoons, Unit.Cups, Unit.FluidOz, Unit.Qt, Unit.Gal];
+    private static volumeUnits: Unit[] = [Unit.Ml, Unit.L, Unit.Teaspoons, Unit.Tablespoons, Unit.Cups, Unit.FluidOz, Unit.Qt, Unit.Gal];
     private static otherUnits: Unit[] = [Unit.Other];
 
     private static proportions: {[key in Unit]: number} = {
@@ -31,6 +31,14 @@ class UnitHelper
         if (this.volumeUnits.includes(unitA) && this.volumeUnits.includes(unitB)){return true;}
         if (this.otherUnits.includes(unitA) && this.otherUnits.includes(unitB)){return true;}
         return false;
+    }
+
+    static getMatchingCategoryUnits(unit: Unit): Unit[]
+    {
+        if (this.weightUnits.includes(unit)){return this.weightUnits;}
+        if (this.volumeUnits.includes(unit)){return this.volumeUnits;}
+        if (this.otherUnits.includes(unit)){return this.otherUnits;}
+        return [];
     }
 
     static getQuantityAfterConversion(currentQuantity: number, currentUnit: Unit, targetUnit: Unit): number

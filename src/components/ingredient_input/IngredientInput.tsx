@@ -18,11 +18,11 @@ const IngredientInput: React.FC<IngredientInputProps> = ({ingredient, editIngred
         editIngredient(newIngredient);
     }
 
-    function editUnit(unitKey:string)
+    function editUnit(unitVal:string)
     {
-        if (Object.values(Unit).includes(Unit[unitKey as keyof typeof Unit]))
+        if (Object.values(Unit).includes(unitVal as Unit))
         {
-            const unit:Unit = Unit[unitKey as keyof typeof Unit];
+            const unit:Unit = unitVal as Unit; //cast should be safe because of the includes check
             const newIngredient: Ingredient = ingredient.clone();
             newIngredient.unit = unit;
             editIngredient(newIngredient);
@@ -38,11 +38,17 @@ const IngredientInput: React.FC<IngredientInputProps> = ({ingredient, editIngred
             editIngredient(newIngredient);
         }
     }
+    
+    const selectUnitOptions: JSX.Element[] = Object.values(Unit).map((unit) =>
+        <option key={unit} value={unit}>{unit}</option>
+    );
 
     return(
         <div className="ingredient_row">
             <input type="number" value={ingredient.quantity} onChange={(e) => editQuantity(Number(e.target.value))}></input>
-            <select></select>
+            <select value={ingredient.unit} onChange={(e) => editUnit(e.target.value)}>
+                {selectUnitOptions}
+            </select>
             <input type="text" value={ingredient.name} onChange={(e) => editName(e.target.value)}></input>
             <button onClick={() => removeIngredient(ingredient.id)}>Remove</button>
         </div>
