@@ -20,6 +20,16 @@ function App() {
   const instructionsOriginalRecipe: string = "";
   const instructionsScaling: string = "";
 
+  let contentWindow;
+  if (onScalingStage)
+  {
+    contentWindow = <ScalingWindow originalRecipe={originalRecipe}/>
+  }
+  else
+  {
+    contentWindow = <OriginalRecipeWindow originalRecipe={originalRecipe} setOriginalRecipe={setOriginalRecipe} maxIngredients={50}/>
+  }
+
   return (
     <div className="App">
       <header className="main_header">
@@ -31,7 +41,7 @@ function App() {
           {(onScalingStage) ? instructionsScaling : instructionsOriginalRecipe}
         </p>
 
-        {(onScalingStage) ? <ScalingWindow originalRecipe={originalRecipe}/> : <OriginalRecipeWindow originalRecipe={originalRecipe} setOriginalRecipe={setOriginalRecipe}/>}
+        {contentWindow}
 
         <button className="switch_app_stage_button" onClick={() => setOnScalingStage(prev => !prev)}>
           {(onScalingStage) ? "Go Back To Original" : "Continue To Scaling"}

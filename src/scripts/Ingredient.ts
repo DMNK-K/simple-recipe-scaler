@@ -16,15 +16,6 @@ class Ingredient
         if (typeof quantity !== "undefined"){this.quantity = quantity;}
     }
 
-    convertUnit(targetUnit: Unit): void
-    {
-        if (this.unit !== targetUnit && UnitHelper.unitsAreSameCategory(this.unit, targetUnit))
-        {
-            this.quantity = UnitHelper.getQuantityAfterConversion(this.quantity, this.unit, targetUnit);
-            this.unit = targetUnit;
-        }
-    }
-
     clone():Ingredient
     {
         return new Ingredient(this.id, this.name, this.unit, this.quantity);
