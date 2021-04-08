@@ -18,7 +18,7 @@ const ScalingWindow: React.FC<ScalingWindowProps> = ({originalRecipe}) =>
 
     function changeScaleDirectly(target: number)
     {
-        if (!isNaN(target))
+        if (!isNaN(target) && target >= 0)
         {
             setScale(target);
         }
