@@ -19,7 +19,7 @@ function App() {
 
   const [onScalingStage, setOnScalingStage] = useState(false);
   const [originalRecipe, setOriginalRecipe] = useState(defaultStartRecipe);
-  const instructionsOriginalRecipe: string = "Use the fields below to write down the original recipe you want to scale, picking initial quantities and units of measurment. Ingredients with quantity of 0 will be ignored.";
+  const instructionsOriginalRecipe: string = "Use the fields below to write down the original recipe you want to scale, picking initial quantities and units of measurement. Ingredients with quantity of 0 will be ignored.";
   const instructionsScaling: string = "Change the quantities of individual ingredients to scale all other ingredients in a proportional manner, or input the scale itself at the bottom. Changing units will automatically convert the quantity for a given ingredient.";
 
   let contentWindow;

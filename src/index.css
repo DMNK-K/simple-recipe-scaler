@@ -8,16 +8,10 @@
 body {
   margin: 0;
   width:100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:'Nunito','Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 button
@@ -26,13 +20,14 @@ button
   border:none;
   border-radius: 3px;
   color:white;
+  font-family: "Nunito";
 }
 
 input
 {
   border: 1px solid rgb(51, 20, 31);
   border-radius: 1px;
-
+  font-family:'Nunito'
 }
 
 button:hover, select:hover
@@ -55,6 +50,7 @@ button:hover, select:hover
 .unit_select, .content_desc_unit
 {
   width: 25%;
+  font-family: "Nunito";
 }
 
 .unit_select
